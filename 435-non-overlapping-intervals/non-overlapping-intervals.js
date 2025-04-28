@@ -6,7 +6,7 @@ var eraseOverlapIntervals = function(intervals) {
     if (!intervals?.length) return 0;
     let count = 0;
 
-    let sorted = intervals.slice().sort((a, b)=> a[0] === b[0] ? a[1]-b[1] : a[0]-b[0]);
+    let sorted = intervals.slice().sort((a, b)=> a[1]-b[1]);
 
     let prev = sorted[0];
 
@@ -14,9 +14,6 @@ var eraseOverlapIntervals = function(intervals) {
         const [curS, curE] = sorted[i];
         if (curS < prev[1]) {
             count++;
-            if (curE < prev[1]) {
-                prev = sorted[i];
-            }
         } else {
             prev = sorted[i];
         }
