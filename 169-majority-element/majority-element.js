@@ -18,12 +18,16 @@ var majorityElement = function(nums) {
         }
     }
 
+    // we can directly return the candidate `elem` as it is guranteed to have a majority element
+    return elem;
+
+    // Check when there is no gurantee
     // Second pass to verify the candidate
-    count = 0;
-    for (let num of nums) {
-        if (num === elem) count++;
-    }
+    // count = 0;
+    // for (let num of nums) {
+    //     if (num === elem) count++;
+    // }
 
     // Return the majority element if it appears more than n / 2 times
-    return count > Math.floor(n / 2) ? elem : -1;
+    // return count > Math.floor(n / 2) ? elem : -1;
 };
