@@ -41,19 +41,12 @@ var levelOrder = function(root) {
             if (cur.right) queue.push(cur.right);
         }
 
-        ans.push(curLevel);
+        ans.push(curLevel[curLevel.length - 1]);
     }
 
     return ans;
 };
 
 var rightSideView = function(root) {
-    let levels = levelOrder(root);
-    let ans = [];
-
-    for (const level of levels) {
-        ans.push(level[level.length - 1]);
-    }
-
-    return ans;
+    return levelOrder(root);
 };
