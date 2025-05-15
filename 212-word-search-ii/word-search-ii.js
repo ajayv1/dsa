@@ -45,7 +45,7 @@ var findWords = function(board, words) {
 
         if (child.word) {
             result.add(child.word);
-            child.word = null;
+            // child.word = null;
         }
 
         board[i][j] = "#";
