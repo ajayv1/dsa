@@ -4,18 +4,20 @@
  */
 var isValid = function(s) {
     let map = {
-        '(': ')',
-        '{': '}',
-        '[': ']' 
+        ')': '(',
+        '}': '{',
+        ']': '[' 
     };
     let stack = [];
 
     for (let ch of s) {
-        let top = stack[stack.length - 1];
-        if (map[top] === ch) {
-            stack.pop();
-        } else {
+        if (ch === '(' || ch === '{' || ch === '[') {
             stack.push(ch);
+        } else {
+            // here stack top would be '(' and ch should be ')'
+            if (map[ch] !== stack.pop()) {
+                return false;
+            }
         }
     }
 
